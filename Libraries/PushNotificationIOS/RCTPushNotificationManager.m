@@ -34,6 +34,9 @@ NSString *const RCTErrorRemoteNotificationRegistrationFailed = @"E_FAILED_TO_REG
   notification.soundName = [RCTConvert NSString:details[@"soundName"]] ?: UILocalNotificationDefaultSoundName;
   notification.userInfo = [RCTConvert NSDictionary:details[@"userInfo"]];
   notification.category = [RCTConvert NSString:details[@"category"]];
+  if (details[@"repeatInterval"]) {
+    notification.repeatInterval = [RCTConvert NSInteger:details[@"repeatInterval"]];
+  }
   if (details[@"applicationIconBadgeNumber"]) {
     notification.applicationIconBadgeNumber = [RCTConvert NSInteger:details[@"applicationIconBadgeNumber"]];
   }
